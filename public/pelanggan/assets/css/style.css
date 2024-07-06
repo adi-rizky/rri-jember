@@ -270,7 +270,7 @@ body {
     display: inline-block;
     padding: 1rem 3rem;
     font-size: 1.7rem;
-    color: #820000;
+    color: #fff;
     background-color: var(--primary);
     cursor: pointer;
 }
