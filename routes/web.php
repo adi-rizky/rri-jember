@@ -21,3 +21,5 @@ Route::get('/', function () {
 
 
 Route::get('/login', [ProfileController::class, 'logins'])->name('logins');
+Route::get('/register', [ProfileController::class, 'registers'])->name('registers');
+Route::get('/forgot', [ProfileController::class, 'forgots'])->name('forgots');

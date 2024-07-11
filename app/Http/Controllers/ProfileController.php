@@ -11,4 +11,13 @@ class ProfileController extends Controller
     {
         return view('livewire.login');
     }
+
+    public function registers()
+    {
+        return view('livewire.register');
+    }
+    public function forgots()
+    {
+        return view('livewire.forgot');
+    }
 }
