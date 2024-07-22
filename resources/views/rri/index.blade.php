@@ -1,5 +1,4 @@
 @extends('rri.index_master');
-
 <section>
     <div class="hero-overlay">
     </div>

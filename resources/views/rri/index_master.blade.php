@@ -17,21 +17,44 @@
 
 </head>
 
-<body>
 
-  @include('rri.body.header')
+<body id="page-top">
 
-  @yield('content')
+  <!-- Page Wrapper -->
+  <div id="wrapper">
 
-  @include('rri.body.footer')
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+      @include('admin.body.aside')
 
-  <!-- feaher icons -->
-  <script>
-    feather.replace();
-  </script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <div class="sidebar-brand-icon rotate-n-15">
+          <i class="fas fa-laugh-wink"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+      </a>
 
-  <script src="{{ asset ('pelanggan/assets/js/script.js') }}"></script>
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+      <!-- Navbar -->
+      @include('rri.body.header')
+      <!-- End Navbar -->
+      <div class="container-fluid py-4">
+        @yield('content')
+        @include(rri.body.footer')
+      </div>
+      </main>
+       
+</body>
+
+<!-- feaher icons -->
+<script>
+  feather.replace();
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+<script src="{{ asset ('pelanggan/assets/js/script.js') }}"></script>
 </body>
 
 </html>
