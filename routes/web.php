@@ -20,7 +20,7 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('rri/index');
 });
 
 Route::post('login', [LoginController::class, 'login'])->name('login');
