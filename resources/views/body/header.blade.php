@@ -1,22 +1,31 @@
-<header>
-    <!-- navbar start -->
-    <nav class="navbar">
-        <a href="#" class="navbar-logo">RRI<span>Jember</span>.</a>
-
-        <div class="navbar-nav">
-            <a href="#home">Home</a>
-            <a href="#about">Tentang Kami</a>
-            <a href="#menu">Menu</a>
-            <a href="#contact">Kontak</a>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-scroll fixed-top shadow-0 border-bottom border-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#!"><i class="fab fa-mdb fa-4x"></i></a>
+        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#!">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#!">Tentang Kami</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#!">Layanan Kami</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#!">Pengajuan Iklan</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#!">Kontak Kami</a>
+                </li>
+                <button type="button" class="btn btn-primary ms-3">Login</button>
+                <button type="button" class="btn btn-primary ms-3">Register</button>
+            </ul>
         </div>
-
-        <div class="navbar-extra">
-            <a href="#" id="search"><i data-feather="search"></i></a>
-            <!-- <a href="#" id="shopping-cart"><i data-feather="shopping-cart"></i></a> -->
-            <a href="{{ route('logins') }}" class="btn btn-p rimary">Login</a>
-            <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
-        </div>
-
-
-    </nav>
-</header>
+    </div>
+</nav>
+<!-- Navbar -->
