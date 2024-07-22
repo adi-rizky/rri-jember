@@ -11,7 +11,7 @@ body {
 
 /* Color of the navbar BEFORE scroll */
 .navbar-scroll {
-    background-color: #1e4bff;
+    background-color: #1c5d99;
 }
 
 /* Color of the links AFTER scroll */
@@ -39,15 +39,90 @@ body {
     color: #141414;
     background-color: #fff;
 }
-.hero-overlay {
-    background-image: url("/pelanggan/assets/img/tentang-kami.jpeg");
-    min-height: 100%;
-    background-size: cover;
-    box-shadow: inset 0 0 0 2000px rgba(38, 33, 36, 0.3);
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+#hero1 {
+    width: 100%;
+    height: 610px;
+    margin-top: 30px;
 }
 
-.footer {
-    background-image: url("https://www.rri.co.id/assets/v2/img/logo-rricoid-text.png");
+#hero1 .container {
+    padding-top: 72px;
+    text-align: center;
+}
+
+#hero1 .image {
+    margin-left: 6px;
+}
+
+#hero1 .image-right img {
+    width: 94%;
+}
+
+#hero1 .image-right .img-fluid {
+    border-radius: 8px;
+}
+
+#hero1 .carousel,
+#hero1 .carousel-inner,
+#hero1 .carousel-item,
+#hero1 .carousel-item::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+#hero1 .carousel-item {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    border-radius: 8px;
+    
+}
+.carousel-item:after {
+  content:"";
+  display:block;
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  background:rgba(0,0,0,0.7);
+}
+
+#hero1 .carousel-inner .carousel-item {
+    transition-property: opacity;
+    background-position: center top;
+}
+#hero1 .carousel-inner .carousel-item .carousel-caption {
+    top: 35%;
+}
+
+#hero1 .carousel-inner .carousel-item .carousel-caption h5 {
+    font-size: 13px;
+    color: white;
+}
+
+#hero1 .carousel-inner .carousel-item .carousel-caption h4 {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+#hero1 .carousel-inner .carousel-item .carousel-caption p {
+    font-size: 13px;
+    color: white;
+}
+
+#hero1 .carousel-inner .carousel-item .carousel-caption h4,
+#hero1 .carousel-inner .carousel-item .carousel-caption p {
+    color: white;
 }
 
 .section-about {
@@ -67,91 +142,42 @@ body {
     border-radius: 8px;
 }
 .bg-layanan {
-    padding: 2%;
-    color: white;
-    background-color: #1e4bff;
+    padding: 3%;
+    color: #030411;
+    background-color: #98C1D9;
 }
-.bg-cta {
-    background-color: #1e4bff;
-    color: #fff;
+.bg-layanan .card{
+    color: #030411;
+    min-height: 100%;
+}
+.needs-validation .btn{
+    background-color: #030411;
+    color: white;
+    width: 100%;
+}
+.contact {
+    background-color:#98C1D9;
+    color: #05061b;
     padding: 5%;
 }
-
-.subfooter-text-links {
-    display: flex;
-    gap: 16px;
-}
-.subfooter {
-    background-image: url(""); /* Ganti dengan path gambar latar Anda */
-    background-position: bottom center; /* Memindahkan gambar latar ke bawah */
-    background-repeat: no-repeat;
-    background-size: contain; /* Menyesuaikan gambar agar seluruhnya terlihat */
-    padding-bottom: 50px; /* Sesuaikan nilai ini untuk memindahkan gambar latar lebih rendah */
-}
-
-.subfooter-logo img {
-    width: 150px; /* Sesuaikan ukuran sesuai kebutuhan */
-    height: auto;
-}
-
-.subfooter-text {
-    position: relative;
-    z-index: 2;
-    color: #fff;
-    display: flex;
-    justify-content: space-between;
-}
-.footer-bg {
-    position: relative;
-    background-image: url("https://www.rri.co.id/assets/v2/img/bg-rri-new.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    padding: 20px; /* Adjust padding as needed */
-    color: white; /* Ensure text is readable against the background */
-}
-
-.footer-bg::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(
-        0,
-        0,
-        0,
-        0.5
-    ); /* Adjust the overlay color and transparency */
-    z-index: 1;
-}
-
-.footer-bg * {
-    position: relative;
-    z-index: 2;
-}
-
-.footer-bg h3,
-.footer-bg ul,
-.footer-bg li,
-.footer-bg a {
-    color: white; /* Ensure links and other text are readable */
-}
-
-footer {
+.contact .btn{
     background-color: #05061b;
-    width: 100%;
-    min-height: 40px;
-    display: flex;
-    padding: 10px 40px;
-    color: #fff;
-    box-sizing: border-box;
+    padding: 3%;
 }
-
-footer .footer-copyright {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+#footer{
+    padding: 3%;
+    color: white;
+    background-image: url("/pelanggan/assets/img/bg-rri-new.png");
+    background-size: cover;
+    box-shadow: inset 0 0 0 2000px rgba(5 , 6, 27, 0.9);
+}
+.navigasi a{
+    color: white;
+}
+.footer-bottom{
+    background-color: #030411;
+    color: white;
+}
+.footer-bottom a{
+    color: white;
 }

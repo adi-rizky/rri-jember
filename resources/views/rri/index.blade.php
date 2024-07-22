@@ -1,12 +1,26 @@
 @extends('rri.index_master');
 
-<section>
-    <div class="hero-overlay">
+<!-- ======= Hero Section ======= -->
+<section id="hero1" class="d-flex align-items-center">
+
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{{ asset('pelanggan/assets/img/tentang-kami.jpeg') }}" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>SELAMAT DATANG</h5>
+                    <h4>Temukan Layanan yang<br>Tepat Untuk Anda</h4>
+                    <p>Lorem ipsum dolor si amet, consectetur adipiscing elit, sed do euismod
+                        tempor incididunt ut</p>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
+<!-- End Hero -->
 
 <!-- Tentang Kami -->
-<section class="section-about mt-5">
+<section class="section-about mt-3">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-5">
@@ -29,21 +43,34 @@
 <!-- Layanan Kami -->
 <section class="bg-layanan">
     <div class="container">
-        <h1 class="text-center mb-5">Layanan Kami</h1> <!-- mb-5 untuk memberi margin-bottom -->
-        <div class="row">
-            <div class="col-md-4 mb-4"> <!-- mb-4 untuk memberi margin-bottom -->
-                <h3>Spot</h3>
-                <p>Iklan radio dalam bentuk rekaman yang diputar di sela-sela acara, durasi 60 detik, disertai sound effect, suara talent voice over yang renyah, sehingga bisa menciptakan theater of mind bagi yang mendengarkan iklannya. Bertujuan untuk menciptakan awareness atau kesadaran terhadap sebuah informasi atau produk.</p>
+        <div class="text-center">
+            <h1>Layanan Kami</h1>
+            <p>Hanya dengan satu Klik saja bisa menjadi lebih mudah dan cepat, memastikan komunikasi yang efisien dan langsung
+                dengan costumer kami </p>
+        </div>
+        <div class="d-flex">
+            <div class="col-md-4 mt-3">
+                <div class="card p-3">
+                    <h3>Spot</h3>
+                    <p>Iklan radio dalam bentuk rekaman yang diputar di sela-sela acara, durasi 60 detik, disertai sound effect, suara talent voice over yang renyah, sehingga bisa menciptakan theater of mind bagi yang mendengarkan iklannya. Bertujuan untuk menciptakan awareness atau kesadaran terhadap sebuah informasi atau produk.</p>
+                </div>
             </div>
-            <div class="col-md-4 mb-4"> <!-- mb-4 untuk memberi margin-bottom -->
-                <h3>Adlib</h3>
-                <p>Iklan yang disampaikan langsung oleh penyiar di sela-sela acara dengan durasi maksimal 1 menit.</p>
+            <div class="col-md-4 mt-3">
+                <div class="card p-3">
+                    <h3>Adlib</h3>
+                    <p>Iklan yang disampaikan langsung oleh penyiar di sela-sela acara dengan durasi maksimal 1 menit.</p>
+                </div>
             </div>
-            <div class="col-md-4 mb-4"> <!-- mb-4 untuk memberi margin-bottom -->
-                <h3>TalkShow</h3>
-                <p>Penyampaian iklan berupa siaran dialog yang membahas tentang sebuah topik yang lagi hangat di tengah masyarakat dengan menghadirkan narasumber yang kompeten. Menerima respon dari pendengar melalui WhatsApp atau telepon. Iklan ini berdurasi 45 menit.</p>
+            <div class="col-md-4 mt-3">
+                <div class="card p-3">
+                    <h3>TalkShow</h3>
+                    <p>Penyampaian iklan berupa siaran dialog yang membahas tentang sebuah topik yang lagi hangat di tengah masyarakat dengan menghadirkan narasumber yang kompeten. Menerima respon dari pendengar melalui WhatsApp atau telepon. Iklan ini berdurasi 45 menit.</p>
+                </div>
             </div>
         </div>
+    </div>
+
+
     </div>
 </section>
 
@@ -53,10 +80,12 @@
         <div class="row">
             <div class="col-md-12 p-3 text-center">
                 <h1>Pengajuan Iklan</h1>
+                <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                    labore et dolore magna aliqua.</p>
             </div>
         </div>
         <div class="d-flex justify-content-center align-items-center">
-            <div class="card col-md-6 ">
+            <div class="card col-md-12">
                 <form class="p-3 needs-validation" novalidate>
                     <div class="mb-3">
                         <label for="namaIklan" class="form-label">Nama Lengkap</label>
@@ -150,12 +179,8 @@
 
 
 <!-- kontak kami -->
-<section id="contact" class="contact">
+<section id="contact" class="contact mt-4">
     <div class="container">
-        <div class="col-md-12 p-3 text-center">
-            <h1>Kontak Kami</h1>
-            <p>Jika Anda memiliki pertanyaan atau saran tentang Kebijakan Privasi kami, jangan ragu untuk menghubungi kami.</p>
-        </div>
         <div class="d-flex col-md-12 bg-cta">
             <div class="col-md-8">
                 <h3>Kirim Pesan Menggunakan WhatsApp</h3>
@@ -171,7 +196,7 @@
     </div>
 </section>
 
-<!-- footerr -->
+<!-- footerr
 <section id="subfooter" class="subfooter footer-bg">
     <div class="subfooter-logo">
         <img src="https://www.rri.co.id/assets/v2/img/logo-rricoid-text.png" alt="Logo RRI">
@@ -211,4 +236,4 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
