@@ -19,11 +19,11 @@
 
 <body>
 
-  @include('body.header')
+  @include('rri.body.header')
 
   @yield('content')
 
-  @include('body.footer')
+  @include('rri.body.footer')
 
   <!-- feaher icons -->
   <script>
