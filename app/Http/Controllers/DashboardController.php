@@ -11,4 +11,12 @@ class DashboardController extends Controller
     {
         return view('admin.index');
     }
+    public function kategori()
+    {
+        return view('admin.pages.kategori');
+    }
+    public function dashboard()
+    {
+        return view('admin.index');
+    }
 }

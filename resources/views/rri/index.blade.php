@@ -1,79 +1,75 @@
 @extends('rri.index_master');
-<<<<<<< HEAD
 <section>
     <div class="hero-overlay">
-=======
 
-<!-- ======= Hero Section ======= -->
-<section id="hero1" class="d-flex align-items-center">
+        <!-- ======= Hero Section ======= -->
+        <section id="hero1" class="d-flex align-items-center">
 
-    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="{{ asset('pelanggan/assets/img/tentang-kami.jpeg') }}" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>SELAMAT DATANG</h5>
-                    <h4>Temukan Layanan yang<br>Tepat Untuk Anda</h4>
-                    <p>Lorem ipsum dolor si amet, consectetur adipiscing elit, sed do euismod
-                        tempor incididunt ut</p>
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="{{ asset('pelanggan/assets/img/tentang-kami.jpeg') }}" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>SELAMAT DATANG</h5>
+                            <h4>Temukan Layanan yang<br>Tepat Untuk Anda</h4>
+                            <p>Sekali di Udara Tetap di Udara</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
->>>>>>> 89ba016aa98d59b2037d8ade7f09b075bcc6207c
-    </div>
-</section>
-<!-- End Hero -->
+        </section>
+        <!-- End Hero -->
 
-<!-- Tentang Kami -->
-<section class="section-about mt-3">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-md-5">
-                <img src="/pelanggan/assets/img/about.jpg" class="img-fluid" alt="Tentang Kami">
+        <!-- Tentang Kami -->
+        <section class="section-about mt-3">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-5">
+                        <img src="/pelanggan/assets/img/about.jpg" class="img-fluid" alt="Tentang Kami">
+                    </div>
+                    <div class="col-md-7 p-3">
+                        <h1>Tentang Kami</h1>
+                        <p>
+                            LPP RRI Jember adalah stasiun radio milik pemerintah Indonesia yang
+                            berlokasi di Jalan Letjen. Panjaitan No. 61 Jember. Sebagai Lembaga
+                            Penyiaran Publik yang independen, netral dan tidak komersial yang
+                            berfungsi memberikan pelayanan siaran informasi, pendidikan, hiburan
+                            yang sehat, kontrol sosial, serta menjaga citra positif bangsa di dunia
+                            internasional dengan slogan "Sekali di Udara, Tetap di Udara </p>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-7 p-3">
-                <h1>Tentang Kami</h1>
-                <p>
-                    LPP RRI Jember adalah stasiun radio milik pemerintah Indonesia yang
-                    berlokasi di Jalan Letjen. Panjaitan No. 61 Jember. Sebagai Lembaga
-                    Penyiaran Publik yang independen, netral dan tidak komersial yang
-                    berfungsi memberikan pelayanan siaran informasi, pendidikan, hiburan
-                    yang sehat, kontrol sosial, serta menjaga citra positif bangsa di dunia
-                    internasional dengan slogan "Sekali di Udara, Tetap di Udara </p>
-            </div>
-        </div>
-    </div>
-</section>
+        </section>
 
-<!-- Layanan Kami -->
-<section class="bg-layanan">
-    <div class="container">
-        <div class="text-center">
-            <h1>Layanan Kami</h1>
-            <p>Hanya dengan satu Klik saja bisa menjadi lebih mudah dan cepat, memastikan komunikasi yang efisien dan langsung
-                dengan costumer kami </p>
-        </div>
-        <div class="d-flex">
-            <div class="col-md-4 mt-3">
-                <div class="card p-3">
-                    <h3>Spot</h3>
-                    <p>Iklan radio dalam bentuk rekaman yang diputar di sela-sela acara, durasi 60 detik, disertai sound effect, suara talent voice over yang renyah, sehingga bisa menciptakan theater of mind bagi yang mendengarkan iklannya. Bertujuan untuk menciptakan awareness atau kesadaran terhadap sebuah informasi atau produk.</p>
+        <!-- Layanan Kami -->
+        <section class="bg-layanan">
+            <div class="container">
+                <div class="text-center">
+                    <h1>Layanan Kami</h1>
+                    <p>Hanya dengan satu Klik saja bisa menjadi lebih mudah dan cepat, memastikan komunikasi yang efisien dan langsung
+                        dengan costumer kami </p>
+                </div>
+                <div class="d-flex">
+                    <div class="col-md-4 mt-3">
+                        <div class="card p-3">
+                            <h3>Spot</h3>
+                            <p>Iklan radio dalam bentuk rekaman yang diputar di sela-sela acara, durasi 60 detik, disertai sound effect, suara talent voice over yang renyah, sehingga bisa menciptakan theater of mind bagi yang mendengarkan iklannya. Bertujuan untuk menciptakan awareness atau kesadaran terhadap sebuah informasi atau produk.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mt-3">
+                        <div class="card p-3">
+                            <h3>Adlib</h3>
+                            <p>Iklan yang disampaikan langsung oleh penyiar di sela-sela acara dengan durasi maksimal 1 menit.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mt-3">
+                        <div class="card p-3">
+                            <h3>TalkShow</h3>
+                            <p>Penyampaian iklan berupa siaran dialog yang membahas tentang sebuah topik yang lagi hangat di tengah masyarakat dengan menghadirkan narasumber yang kompeten. Menerima respon dari pendengar melalui WhatsApp atau telepon. Iklan ini berdurasi 45 menit.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-4 mt-3">
-                <div class="card p-3">
-                    <h3>Adlib</h3>
-                    <p>Iklan yang disampaikan langsung oleh penyiar di sela-sela acara dengan durasi maksimal 1 menit.</p>
-                </div>
-            </div>
-            <div class="col-md-4 mt-3">
-                <div class="card p-3">
-                    <h3>TalkShow</h3>
-                    <p>Penyampaian iklan berupa siaran dialog yang membahas tentang sebuah topik yang lagi hangat di tengah masyarakat dengan menghadirkan narasumber yang kompeten. Menerima respon dari pendengar melalui WhatsApp atau telepon. Iklan ini berdurasi 45 menit.</p>
-                </div>
-            </div>
-        </div>
-    </div>
 
 
     </div>

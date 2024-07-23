@@ -15,6 +15,22 @@
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
+    <li class="nav-item active">
+        <a class="nav-link" href="index.html">
+            <i class="fas fa-file"></i>
+            <span>Pengajuan</span></a>
+    </li>
+    <li class="nav-item active">
+        <a class="nav-link" href="index.html">
+            <i class="fas fa-clipboard"></i>
+            <span>Paket Iklan</span></a>
+    </li>
+    <li class="nav-item active">
+        <a class="nav-link" href="{{ route('kategori') }}">
+            <i class="fas fa-briefcase"></i>
+            <span>Kategori Iklan</span></a>
+    </li>
+
 
     <!-- Divider -->
     <hr class="sidebar-divider">

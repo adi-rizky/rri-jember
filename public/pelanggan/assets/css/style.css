@@ -84,17 +84,16 @@ body {
     justify-content: center;
     align-items: flex-end;
     border-radius: 8px;
-    
 }
 .carousel-item:after {
-  content:"";
-  display:block;
-  position:absolute;
-  top:0;
-  bottom:0;
-  left:0;
-  right:0;
-  background:rgba(0,0,0,0.7);
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
 }
 
 #hero1 .carousel-inner .carousel-item {
@@ -144,107 +143,40 @@ body {
 .bg-layanan {
     padding: 3%;
     color: #030411;
-    background-color: #98C1D9;
+    background-color: #98c1d9;
 }
-.bg-layanan .card{
+.bg-layanan .card {
     color: #030411;
     min-height: 100%;
 }
-.needs-validation .btn{
+.needs-validation .btn {
     background-color: #030411;
     color: white;
     width: 100%;
 }
 .contact {
-    background-color:#98C1D9;
+    background-color: #98c1d9;
     color: #05061b;
     padding: 5%;
 }
-<<<<<<< HEAD
-
-.subfooter-text-links {
-    display: flex;
-    gap: 16px;
-}
-.subfooter {
-    background-image: url(""); /* Ganti dengan path gambar latar Anda */
-    background-position: bottom center; /* Memindahkan gambar latar ke bawah */
-    background-repeat: no-repeat;
-    background-size: contain; /* Menyesuaikan gambar agar seluruhnya terlihat */
-    padding-bottom: 50px; /* Sesuaikan nilai ini untuk memindahkan gambar latar lebih rendah */
-}
-
-.subfooter-logo img {
-    width: 150px; /* Sesuaikan ukuran sesuai kebutuhan */
-    height: auto;
-}
-
-.subfooter-text {
-    position: relative;
-    z-index: 2;
-    color: #fff;
-    display: flex;
-    justify-content: space-between;
-}
-.footer-bg {
-    position: relative;
-    background-image: url("https://www.rri.co.id/assets/v2/img/bg-rri-new.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    padding: 20px; /* Adjust padding as needed */
-    color: white; /* Ensure text is readable against the background */
-}
-
-.footer-bg::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(
-        0,
-        0,
-        0,
-        0.9
-    ); /* Adjust the overlay color and transparency */
-    z-index: 1;
-}
-
-.footer-bg * {
-    position: relative;
-    z-index: 2;
-}
-
-.footer-bg h3,
-.footer-bg ul,
-.footer-bg li,
-.footer-bg a {
-    color: white; /* Ensure links and other text are readable */
-}
-
-footer {
-=======
-.contact .btn{
->>>>>>> 89ba016aa98d59b2037d8ade7f09b075bcc6207c
+.contact .btn {
     background-color: #05061b;
     padding: 3%;
 }
-#footer{
+#footer {
     padding: 3%;
     color: white;
     background-image: url("/pelanggan/assets/img/bg-rri-new.png");
     background-size: cover;
-    box-shadow: inset 0 0 0 2000px rgba(5 , 6, 27, 0.9);
+    box-shadow: inset 0 0 0 2000px rgba(5, 6, 27, 0.9);
 }
-.navigasi a{
+.navigasi a {
     color: white;
 }
-.footer-bottom{
+.footer-bottom {
     background-color: #030411;
     color: white;
 }
-.footer-bottom a{
+.footer-bottom a {
     color: white;
 }

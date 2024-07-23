@@ -25,8 +25,8 @@ Route::get('/', function () {
 
 Route::post('login', [LoginController::class, 'login'])->name('login');
 
-Route::get('admin/dashboard', [\App\Http\Controllers\DashboardController::class, 'index'])->name('admin.dashboard.index');
-// Route::get('admin.dashboard', [DashboardController::class, 'index'])->name('admin.dashboard.index');
+Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+Route::get('/kategori', [DashboardController::class, 'kategori'])->name('kategori');
 
 //profile controller 
 Route::get('/login', [ProfileController::class, 'logins'])->name('logins');

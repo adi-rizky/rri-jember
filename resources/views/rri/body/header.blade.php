@@ -17,7 +17,7 @@
                     <a class="nav-link" href="#!">Layanan Kami</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#!">Pengajuan Iklan</a>
+                    <a class="nav-link" href="{{ route('dashboard') }}">Pengajuan Iklan</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#!">Kontak Kami</a>
