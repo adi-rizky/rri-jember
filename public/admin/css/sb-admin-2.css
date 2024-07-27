@@ -932,6 +932,21 @@ pre code {
     margin-left: 91.66667%;
 }
 
+
+/* ================== CSS INI ======================== */
+.form-paket {
+    background-color: #fff;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid #e3e6f0;
+    border-radius: 0.35rem;
+}
+
 @media (min-width: 576px) {
     .col-sm {
         flex-basis: 0;

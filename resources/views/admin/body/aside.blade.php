@@ -16,12 +16,12 @@
             <span>Dashboard</span></a>
     </li>
     <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{ route('pengajuan') }}">
             <i class="fas fa-file"></i>
             <span>Pengajuan</span></a>
     </li>
     <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{ route('paketIklan') }}">
             <i class="fas fa-clipboard"></i>
             <span>Paket Iklan</span></a>
     </li>

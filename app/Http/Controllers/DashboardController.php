@@ -15,6 +15,18 @@ class DashboardController extends Controller
     {
         return view('admin.pages.kategori');
     }
+    public function pengajuan()
+    {
+        return view('admin.pages.pengajuan');
+    }
+    public function detailPengajuan()
+    {
+        return view('admin.pages.detailPengajuan');
+    }
+    public function paketIklan()
+    {
+        return view('admin.pages.paketIklan');
+    }
     public function dashboard()
     {
         return view('admin.index');

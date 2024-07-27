@@ -31,8 +31,8 @@
                     <th scope="row">1</th>
                     <td>Mark</td>
                     <td>
-                        <button type="button" class="btn btn-primary btn">Edit</button>
-                        <button type="button" class="btn btn-secondary btn">Delete</button>
+                        <button type="button" class="btn btn-primary btn"><i class="fa-solid fa-pen-to-square"></i></button>
+                        <button type="button" class="btn btn-secondary btn"><i class="fa-solid fa-trash"></i></button>
                     </td>
                 </tr>
             </tbody>

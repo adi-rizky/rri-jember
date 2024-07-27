@@ -27,6 +27,9 @@ Route::post('login', [LoginController::class, 'login'])->name('login');
 
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 Route::get('/kategori', [DashboardController::class, 'kategori'])->name('kategori');
+Route::get('/pengajuan', [DashboardController::class, 'pengajuan'])->name('pengajuan');
+Route::get('/detailPengajuan', [DashboardController::class, 'detailPengajuan'])->name('detailPengajuan');
+Route::get('/paketIklan', [DashboardController::class, 'paketIklan'])->name('paketIklan');
 
 //profile controller 
 Route::get('/login', [ProfileController::class, 'logins'])->name('logins');
