@@ -31,28 +31,38 @@ class LoginController extends Controller
         //  $credentials = $request->only('email', 'password');
 
         // Coba untuk mengotentikasi pengguna dengan kredensial yang diberikan
-        if (Auth::attempt($credentials)) {
-            // Jika otentikasi berhasil, redirect ke halaman dashboard (atau halaman lain yang diinginkan)
-            return redirect()->intended('admin/dashboard');
-        } else {
-            // Jika otentikasi gagal, kembalikan respons dengan pesan kesalahan
-            return redirect()->back()->withErrors(['error' => 'Unauthorized'])->withInput();
-        }
-
-        // // Coba untuk mengotentikasi pengguna dengan kredensial yang diberikan
         // if (Auth::attempt($credentials)) {
-        //     // Jika otentikasi berhasil, periksa peran pengguna
-        //     $user = Auth::user();
-        //     if ($user->role == 'admin') {
-        //         // Redirect ke halaman admin
-        //         return redirect()->intended('admin/dashboard');
-        //     } else {
-        //         // Redirect ke halaman user
-        //         return redirect()->intended('user/dashboard');
-        //     }
+        //     // Jika otentikasi berhasil, redirect ke halaman dashboard (atau halaman lain yang diinginkan)
+        //     return redirect()->intended('admin/dashboard');
         // } else {
         //     // Jika otentikasi gagal, kembalikan respons dengan pesan kesalahan
         //     return redirect()->back()->withErrors(['error' => 'Unauthorized'])->withInput();
         // }
+
+        // Coba untuk mengotentikasi pengguna dengan kredensial yang diberikan
+        if (Auth::attempt($credentials)) {
+            // Jika otentikasi berhasil, periksa peran pengguna
+            $user = Auth::user();
+            if ($user->role == 'admin') {
+                // Redirect ke halaman admin
+                return redirect()->intended('admin/dashboard');
+            } else {
+                // Redirect ke halaman user
+                return redirect()->intended('/');
+            }
+        } else {
+            // Jika otentikasi gagal, kembalikan respons dengan pesan kesalahan
+            return redirect()->back()->withErrors(['error' => 'Unauthorized'])->withInput();
+        }
+    }
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/');
     }
 }

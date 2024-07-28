@@ -22,8 +22,19 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#!">Kontak Kami</a>
                 </li>
+                @auth
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+
+                <button type="button" class="btn btn-primary ms-3" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    Logout
+                </button>
+                @else
                 <button type="button" class="btn btn-primary ms-3">Login</button>
                 <button type="button" class="btn btn-primary ms-3">Register</button>
+                @endauth
+
             </ul>
         </div>
     </div>

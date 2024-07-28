@@ -34,48 +34,49 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4"><strong>Create an Account</strong></h1>
                             </div>
-                            <form class="user" method="POST" action="proses-registrasi.php">
+                            <form class="user" method="POST"  action="{{ route('register') }}">
+                                @csrf
                                 <!-- Nama dan Nomor Telepon -->
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <label for="exampleFirstName"><strong>Nama Lengkap</strong></label>
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Nama Lengkap">
+                                        <input type="text" class="form-control form-control-user" id="name" name="name" required placeholder="Nama Lengkap">
                                     </div>
                                     <div class="col-sm-6">
                                         <label for="exampleLastName"><strong>No. Tlp/Hp</strong></label>
-                                        <input type="text" class="form-control form-control-user" id="exampleLastName" placeholder="No. Tlp/Hp">
+                                        <input type="number" inputmode="numeric" class="form-control form-control-user" id="phone" name="phone" required placeholder="No. Tlp/Hp">
                                     </div>
                                 </div>
                                 <!-- Email -->
                                 <div class="form-group">
                                     <label for="exampleInputEmail"><strong>Email</strong></label>
-                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email">
+                                    <input type="email" class="form-control form-control-user" id="email" name="email" required placeholder="Email">
                                 </div>
                                 <!-- Password dan Konfirmasi Password -->
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <label for="exampleInputPassword"><strong>Password</strong></label>
-                                        <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                                        <input type="password" class="form-control form-control-user"  id="password" name="password" required placeholder="Password">
                                     </div>
                                     <div class="col-sm-6">
                                         <label for="exampleRepeatPassword"><strong>Konfirmasi Password</strong></label>
-                                        <input type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Konfirmasi Password">
+                                        <input type="password" class="form-control form-control-user" id="password_confirmation" name="password_confirmation" required placeholder="Konfirmasi Password">
                                     </div>
                                 </div>
                                 <!-- Alamat -->
                                 <div class="form-group">
                                     <label for="exampleInputAddress"><strong>Alamat</strong></label>
-                                    <input type="text" class="form-control form-control-user" id="exampleInputAddress" placeholder="Alamat">
+                                    <input type="text" class="form-control form-control-user" id="address" name="address" required placeholder="Alamat">
                                 </div>
                                 <!-- Tempat dan Tanggal Lahir -->
                                 <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <!-- <div class="col-sm-6 mb-3 mb-sm-0">
                                         <label for="exampleInputPlaceOfBirth"><strong>Tempat Lahir</strong></label>
                                         <input type="text" class="form-control form-control-user" id="exampleInputPlaceOfBirth" placeholder="Tempat Lahir">
-                                    </div>
+                                    </div> -->
                                     <div class="col-sm-6">
                                         <label for="exampleInputDateOfBirth"><strong>Tanggal Lahir</strong></label>
-                                        <input type="date" class="form-control form-control-user" id="exampleInputDateOfBirth" placeholder="Tanggal Lahir">
+                                        <input type="date" class="form-control form-control-user" id="birth_date" name="birth_date" required     placeholder="Tanggal Lahir">
                                     </div>
                                 </div>
                                 <!-- Tombol Registrasi -->

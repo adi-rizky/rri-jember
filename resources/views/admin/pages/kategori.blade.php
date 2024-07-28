@@ -5,13 +5,18 @@
 </div>
 <section>
     <div class="card p-4">
-        <form>
+        <form action="/nama-kategori" method="POST">
+            @csrf
             <div class="col-md-12 mb-3">
                 <label for="exampleInputEmail1" class="form-label">Nama Kategori</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="text" class="form-control" id="nama_kategori" name="nama_kategori" aria-describedby="emailHelp">
+            </div>
+            <div class="col-md-12 mb-3">
+                <label for="exampleInputEmail1" class="form-label">Deskripsi</label>
+                <textarea type="text" class="form-control" id="deskripsi" name="deskripsi" aria-describedby="emailHelp"></textarea>
             </div>
             <div class="col-md-12 tombol">
-                <a class="btn btn-primary" href="">tambahkan</a>
+                <button class="btn btn-primary" type="submit">tambahkan</a>
             </div>
         </form>
     </div>
@@ -23,18 +28,36 @@
                 <tr>
                     <th scope="col">No</th>
                     <th scope="col">Nama Kategori</th>
+                    <th scope="col">Deskripsi</th>
                     <th scope="col">Actiom</th>
                 </tr>
             </thead>
             <tbody>
+                @forelse($kategori as $kat)
                 <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $kat->nama_kategori }}</td>
+                    <td>{{ $kat->deskripsi }}</td>
                     <td>
-                        <button type="button" class="btn btn-primary btn"><i class="fa-solid fa-pen-to-square"></i></button>
-                        <button type="button" class="btn btn-secondary btn"><i class="fa-solid fa-trash"></i></button>
+                    <div class="d-flex align-items-center">
+                        <form action="{{ route('kategori.destroy', $kat->id) }}" method="POST" class="me-2">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" onclick="return confirm('Anda yakin ingin menghapus paket ini?')" class="btn btn-danger">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </form>
+                        <a href="{{ route('kategori.edit', $kat->id) }}" class="btn btn-primary">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </a>
+                    </div>
                     </td>
                 </tr>
+                @empty
+                <tr>
+                    <td colspan="3">Tidak ada data.</td>
+                </tr>
+                @endforelse
             </tbody>
         </table>
     </div>

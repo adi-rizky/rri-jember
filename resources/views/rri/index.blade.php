@@ -21,7 +21,7 @@
         <!-- End Hero -->
 
         <!-- Tentang Kami -->
-        <section class="section-about mt-3">
+        <section class="section-about bg-layanan mt-3">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-5">
@@ -42,39 +42,53 @@
         </section>
 
         <!-- Layanan Kami -->
-        <section class="bg-layanan">
+        <section class="mt-4">
             <div class="container">
                 <div class="text-center">
+                    
                     <h1>Layanan Kami</h1>
                     <p>Hanya dengan satu Klik saja bisa menjadi lebih mudah dan cepat, memastikan komunikasi yang efisien dan langsung
                         dengan costumer kami </p>
                 </div>
                 <div class="d-flex">
                     <div class="col-md-4 mt-3">
+                        @forelse($kategori as $kat)
                         <div class="card p-3">
-                            <h3>Spot</h3>
-                            <p>Iklan radio dalam bentuk rekaman yang diputar di sela-sela acara, durasi 60 detik, disertai sound effect, suara talent voice over yang renyah, sehingga bisa menciptakan theater of mind bagi yang mendengarkan iklannya. Bertujuan untuk menciptakan awareness atau kesadaran terhadap sebuah informasi atau produk.</p>
+                            <h3>{{$kat->nama_kategori}}</h3>
+                            <p>{{$kat->deskripsi}}</p>
+                            <!-- <p>Iklan radio dalam bentuk rekaman yang diputar di sela-sela acara, durasi 60 detik, disertai sound effect, suara talent voice over yang renyah, sehingga bisa menciptakan theater of mind bagi yang mendengarkan iklannya. Bertujuan untuk menciptakan awareness atau kesadaran terhadap sebuah informasi atau produk.</p> -->
                         </div>
+                        @empty
+                        <p>Tidak ada kategori iklan tersedia</p>
                     </div>
-                    <div class="col-md-4 mt-3">
-                        <div class="card p-3">
-                            <h3>Adlib</h3>
-                            <p>Iklan yang disampaikan langsung oleh penyiar di sela-sela acara dengan durasi maksimal 1 menit.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mt-3">
-                        <div class="card p-3">
-                            <h3>TalkShow</h3>
-                            <p>Penyampaian iklan berupa siaran dialog yang membahas tentang sebuah topik yang lagi hangat di tengah masyarakat dengan menghadirkan narasumber yang kompeten. Menerima respon dari pendengar melalui WhatsApp atau telepon. Iklan ini berdurasi 45 menit.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
+                    @endforelse
     </div>
 </section>
-
+<br><br>
+        <!-- Paket Iklan -->
+        <section class="bg-layanan mb-3">
+            <div class="container">
+                <div class="text-center">
+                    <h1>Paket Iklan</h1>
+                    <p>Tambahkan Deskripsi </p>
+                </div>
+                <div class="d-flex">
+                    <div class="col-md-4 mt-3">
+                        @forelse($paketIklan as $paket)
+                        <div class="card p-3">
+                            <h3>{{$paket->nama_paket}}</h3>
+                            <p>{{$paket->pemutaran}}</p>
+                            <p>{{$paket->deskripsi}}</p>
+                            <p>{{$paket->harga}}</p>
+                            <!-- <p>Iklan radio dalam bentuk rekaman yang diputar di sela-sela acara, durasi 60 detik, disertai sound effect, suara talent voice over yang renyah, sehingga bisa menciptakan theater of mind bagi yang mendengarkan iklannya. Bertujuan untuk menciptakan awareness atau kesadaran terhadap sebuah informasi atau produk.</p> -->
+                        </div>
+                        @empty
+                        <p>Tidak ada kategori iklan tersedia</p>
+                    </div>
+                    @endforelse
+    </div>
+</section>
+<br><br>
 <!-- Pengajuan Iklan -->
 <section>
     <div class="container">
@@ -87,40 +101,37 @@
         </div>
         <div class="d-flex justify-content-center align-items-center">
             <div class="card col-md-12">
-                <form class="p-3 needs-validation" novalidate>
+                <form class="p-3 needs-validation" action="{{ route('pengajuaniklan.store') }}" method="POST" enctype="multipart/form-data" novalidate>
+                    @csrf
+                    @auth
+                    <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                     <div class="mb-3">
                         <label for="namaIklan" class="form-label">Nama Lengkap</label>
-                        <input type="text" class="form-control" id="namaIklan" required>
+                        <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" >
                         <div class="invalid-feedback">
                             Silakan masukkan nama lengkap.
                         </div>
                     </div>
+                    @endauth
+                    @guest
+                    <div class="mb-3">
+                        <label for="namaIklan" class="form-label">Nama Lengkap</label>
+                        <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" >
+                        <div class="invalid-feedback">
+                            Silakan masukkan nama lengkap.
+                        </div>
+                    </div>
+                    @endguest
                     <div class="mb-3">
                         <label for="namaUsaha" class="form-label">Nama Usaha</label>
-                        <input type="text" class="form-control" id="namaUsaha" required>
+                        <input type="text" class="form-control" id="nama_usaha" name="nama_usaha" required>
                         <div class="invalid-feedback">
                             Silakan masukkan nama usaha.
                         </div>
                     </div>
-                    <div class="row mb-3">
-                        <div class="col-md-6">
-                            <label for="jamTayang" class="form-label">Jam Tayang Iklan</label>
-                            <input type="time" class="form-control" id="jamTayang" required>
-                            <div class="invalid-feedback">
-                                Silakan pilih jam tayang iklan.
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="tanggalTayang" class="form-label">Tanggal Tayang Iklan</label>
-                            <input type="date" class="form-control" id="tanggalTayang" required>
-                            <div class="invalid-feedback">
-                                Silakan pilih tanggal tayang iklan.
-                            </div>
-                        </div>
-                    </div>
                     <div class="mb-3">
                         <label for="noTelp" class="form-label">Nomor Telepon</label>
-                        <input type="tel" class="form-control" id="noTelp" required>
+                        <input type="number" class="form-control" id="nomor_telepon" name="nomor_telepon" required>
                         <div class="invalid-feedback">
                             Silakan masukkan nomor telepon yang valid.
                         </div>
@@ -128,50 +139,64 @@
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <label for="paketIklan" class="form-label">Paket Iklan</label>
-                            <select class="form-select" id="paketIklan" required>
+                            <select class="form-select" id="paketIklan" name="paket_iklan" required>
                                 <option selected disabled value="">Pilih paket iklan...</option>
-                                <option>Paket 1</option>
-                                <option>Paket 2</option>
-                                <option>Paket 3</option>
+                                @forelse ($paketIklan as $paket)
+                                <option value="{{ $paket->id }}" data-harga="{{ $paket->harga }}">{{ $paket->nama_paket }}</option>
+                                @empty
+                                <option>Tidak ada paket iklan tersedia</option>
+                                @endforelse
                             </select>
                             <div class="invalid-feedback">
                                 Silakan pilih paket iklan.
                             </div>
                         </div>
+
                         <div class="col-md-6">
+                            <label for="harga" class="form-label">Harga Paket</label>
+                            <input type="text" class="form-control" id="harga" name="harga" readonly>
+                        </div>
+
+                        <div class="col-md-12">
+
                             <label for="kategoriIklan" class="form-label">Kategori Iklan</label>
-                            <select class="form-select" id="kategoriIklan" required>
+                            <select class="form-select" id="paketIklan" name="kategori_iklan" required>
                                 <option selected disabled value="">Pilih kategori iklan...</option>
-                                <option>Kategori 1</option>
-                                <option>Kategori 2</option>
-                                <option>Kategori 3</option>
+                                @forelse ($kategori as $kat)
+                                <option id="kategori_iklan">{{$kat->nama_kategori}}</option>
+                                @empty
+                                <option>Tidak ada kategori iklan tersedia</option>
+                                @endforelse
                             </select>
                             <div class="invalid-feedback">
-                                Silakan pilih kategori iklan.
+                                Silakan pilih paket iklan.
                             </div>
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="unggahMateri" class="form-label">Unggah Materi (opsional)</label>
-                        <input type="file" class="form-control" id="unggahMateri">
+                        <label for="unggahMateri" class="form-label">Unggah Materi (wajib)</label>
+                        <input type="file" class="form-control" id="unggah_materi" name="unggah_materi">
                         <div id="materiHelp" class="form-text">Anda dapat mengunggah file terkait dengan iklan.</div>
                     </div>
                     <div class="mb-3">
-                        <label for="catatan" class="form-label">Catatan Tambahan</label>
-                        <textarea class="form-control" id="catatan" rows="3"></textarea>
+                        <label for="">Nomor Rekening</label>
+                        <h2>08907908y8</h2>
                     </div>
                     <div class="mb-3">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="agreeCheck" required>
-                            <label class="form-check-label" for="agreeCheck">
-                                Setuju dengan syarat dan ketentuan
-                            </label>
-                            <div class="invalid-feedback">
-                                Anda harus menyetujui sebelum mengirimkan.
-                            </div>
-                        </div>
+                        <label for="unggahMateri" class="form-label">Bukti Pembayaran</label>
+                        <input type="file" class="form-control" id="bukti_pembayaran" name="bukti_pembayaran">
+                        <div id="materiHelp" class="form-text">bukti pembayaran</div>
                     </div>
+                    <div class="mb-3">
+                        <label for="catatan" class="form-label">Catatan Tambahan</label>
+                        <textarea class="form-control" id="catatan" name="catatan_tambahan" rows="3"></textarea>
+                    </div>
+                    <input type="hidden" name="status" value="belum di proses">
+                    @auth
                     <button class="btn btn-primary" type="submit">Ajukan Iklan</button>
+                    @else
+                    <button class="btn btn-primary" type="submit">Register</button>
+                    @endauth
                 </form>
             </div>
         </div>
@@ -195,6 +220,18 @@
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const paketIklanSelect = document.getElementById('paketIklan');
+            const hargaPaketInput = document.getElementById('harga');
+
+            paketIklanSelect.addEventListener('change', function() {
+                const selectedOption = paketIklanSelect.options[paketIklanSelect.selectedIndex];
+                const harga = selectedOption.getAttribute('data-harga');
+                hargaPaketInput.value = harga ? 'Rp ' + new Intl.NumberFormat('id-ID').format(harga) : '';
+            });
+        });
+    </script>
 </section>
 
 <!-- footerr
