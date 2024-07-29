@@ -45,7 +45,7 @@ class LoginController extends Controller
             $user = Auth::user();
             if ($user->role == 'admin') {
                 // Redirect ke halaman admin
-                return redirect()->intended('admin/dashboard');
+                return redirect()->intended('dashboard');
             } else {
                 // Redirect ke halaman user
                 return redirect()->intended('/');

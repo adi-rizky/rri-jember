@@ -30,11 +30,19 @@
             <i class="fas fa-briefcase"></i>
             <span>Kategori Iklan</span></a>
     </li>
-    <li class="nav-item active">
+    <!-- <li class="nav-item active">
         <a class="nav-link" href="{{ route('riwayatpesanan') }}">
             <i class="fas fa-history"></i>
             <span>Riwayat Pesanan</span></a>
-    </li>
+    </li> -->
+
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+
+                <button type="button" class="btn btn-primary ms-3" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    Logout
+                </button>
 
 
     <!-- Divider -->

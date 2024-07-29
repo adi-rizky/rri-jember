@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\PengajuanIklan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 
 class PengajuanIklanController extends Controller
@@ -65,6 +66,18 @@ class PengajuanIklanController extends Controller
         return redirect('/')->with('success', 'Pengajuan iklan berhasil dibuat.');
     }
     
+    public function updateStatus(Request $request, $userid)
+    {
+        $request->validate([
+            'status' => 'nullable|in:belum di proses,sedang di proses,sudah selesai'
+        ]);
+
+        $pengajuanIklan = PengajuanIklan::findOrFail($userid);
+        $pengajuanIklan->status = $request->status;
+        $pengajuanIklan->save();
+
+        return redirect('/pengajuan')->with('success', 'Status berhasil diperbarui');
+    }
 
     /**
      * Display the specified resource.
@@ -93,8 +106,32 @@ class PengajuanIklanController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(PengajuanIklan $pengajuanIklan)
+    public function destroy($id)
     {
-        //
+        $pengajuanIklan = PengajuanIklan::findOrFail($id);
+        
+        // Menghapus file yang terkait jika ada
+        if ($pengajuanIklan->unggah_materi) {
+            Storage::disk('public')->delete($pengajuanIklan->unggah_materi);
+        }
+        if ($pengajuanIklan->bukti_pembayaran) {
+            Storage::disk('public')->delete($pengajuanIklan->bukti_pembayaran);
+        }
+
+        // Menghapus data ik$pengajuanIklan
+        $pengajuanIklan->delete();
+
+        return redirect()->back()->with('success', 'Pengajuan iklan berhasil dihapus.');
+    }
+
+    public function riwayatPesanan()
+    {
+        // Mendapatkan ID pengguna yang sedang login
+        $userId = Auth::id();
+
+        // Mengambil data pengajuan iklan berdasarkan user_id
+        $pengajuanIklans = PengajuanIklan::where('user_id', $userId)->get();
+
+        return view('rri.riwayatpesanan', compact('pengajuanIklans'));
     }
 }

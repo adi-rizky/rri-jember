@@ -16,18 +16,26 @@
             </tr>
         </thead>
         <tbody>
+            @forelse ($pengajuaniklan as $pengajuan)
             <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>Otto</td>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{$pengajuan->nama_lengkap}}</td>
+                <td>{{$pengajuan->nomor_telepon}}</td>
+                <td>{{$pengajuan->paket_iklan}}</td>
                 <td>
-                    <a href="{{ route('detailPengajuan') }}" class="btn btn-warning"><i
-                            class="fa-solid fa-circle-info"></i></a>
-                    <a type="button" class="btn btn-primary btn"><i class="fa-solid fa-pen-to-square"></i></a>
-                    <a type="button" class="btn btn-secondary btn"><i class="fa-solid fa-trash"></i></a>
+                    <a href="{{ route('detailPengajuan',$pengajuan->id) }}" class="btn btn-warning"><i class="fa-solid fa-circle-info"></i></a>
+                    <form action="{{ route('pengajuan.destroy', $pengajuan->id) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus pengajuan ini?');">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Hapus</button>
+                    </form>
                 </td>
+                @empty
+            <tr>
+                <td colspan="5">Tidak ada data pengajuan iklan.</td>
             </tr>
+            </tr>
+            @endforelse
         </tbody>
     </table>
 </div>

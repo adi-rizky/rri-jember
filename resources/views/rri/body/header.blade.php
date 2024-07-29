@@ -23,6 +23,11 @@
                     <a class="nav-link" href="#!">Kontak Kami</a>
                 </li>
                 @auth
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('riwayat.pesanan') }}">Riwayat Pesanan</a>
+                </li>
+                @endauth
+                @auth
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf
                 </form>

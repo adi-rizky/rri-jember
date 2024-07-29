@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\PaketIklan;
 use App\Models\Kategori;
+use App\Models\PengajuanIklan;
 
 use Illuminate\Http\Request;
 
@@ -20,11 +21,13 @@ class DashboardController extends Controller
     }
     public function pengajuan()
     {
-        return view('admin.pages.pengajuan');
+        $pengajuaniklan = PengajuanIklan::all();
+        return view('admin.pages.pengajuan',compact('pengajuaniklan'));
     }
-    public function detailPengajuan()
+    public function detailPengajuan($id)
     {
-        return view('admin.pages.detailPengajuan');
+        $pengajuaniklan = PengajuanIklan::findOrFail($id);
+        return view('admin.pages.detailPengajuan',compact('pengajuaniklan'));
     }
     public function paketIklan()
     {

@@ -33,30 +33,35 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::post('login', [LoginController::class, 'login'])->name('login');
 
-Route::get('/', [DashboardController::class, 'awal']);
-Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
-Route::get('/kategori', [DashboardController::class, 'kategori'])->name('kategori');
-Route::get('/pengajuan', [DashboardController::class, 'pengajuan'])->name('pengajuan');
-Route::get('/detailPengajuan', [DashboardController::class, 'detailPengajuan'])->name('detailPengajuan');
-Route::get('/paketIklan', [DashboardController::class, 'paketIklan'])->name('paketIklan');
-Route::get('/riwayatpesanan', [DashboardController::class, 'riwayat'])->name('riwayatpesanan');
 
+Route::get('/', [DashboardController::class, 'awal']);
+
+//role pelanggan
+Route::middleware(['pelanggan'])->group(function () {
+    Route::post('/pengajuan-iklan', [PengajuanIklanController::class, 'store'])->name('pengajuaniklan.store');
+    Route::get('/riwayat-pesanan', [PengajuanIklanController::class, 'riwayatPesanan'])->name('riwayat.pesanan');
+});
+
+//role admin
+Route::middleware(['admin'])->group(function () {
+    Route::post('/paket-iklan', [PaketIklanController::class, 'store']);
+    Route::post('/nama-kategori', [KategoriController::class, 'store']);
+    Route::get('/paket-iklan/{id}/edit', [PaketIklanController::class, 'edit'])->name('paket-iklan.edit');
+    Route::get('/nama-ketegori/{id}/edit', [KategoriController::class, 'edit'])->name('kategori.edit');
+    Route::put('/paket-iklan/{paketIklan}', [PaketIklanController::class, 'update'])->name('paket-iklan.update');
+    Route::put('/nama-kategori/{kategori}', [KategoriController::class, 'update'])->name('kategori.update');
+    Route::delete('/paket-iklan/{paketIklan}', [PaketIklanController::class, 'destroy'])->name('paket-iklan.destroy');
+    Route::delete('/nama-kategori/{kategori}', [KategoriController::class, 'destroy'])->name('kategori.destroy');
+    Route::post('/pengajuan/{id}/update-status', [PengajuanIklanController::class, 'updateStatus'])->name('pengajuan.updateStatus');
+    Route::delete('/pengajuan/{id}', [PengajuanIklanController::class, 'destroy'])->name('pengajuan.destroy');
+    Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+    Route::get('/kategori', [DashboardController::class, 'kategori'])->name('kategori');
+    Route::get('/pengajuan', [DashboardController::class, 'pengajuan'])->name('pengajuan');
+    Route::get('/detailPengajuan/{id}', [DashboardController::class, 'detailPengajuan'])->name('detailPengajuan');
+    Route::get('/paketIklan', [DashboardController::class, 'paketIklan'])->name('paketIklan');
+    Route::get('/riwayatpesanan', [DashboardController::class, 'riwayat'])->name('riwayatpesanan');
+});
 //profile controller 
 Route::get('/login', [ProfileController::class, 'logins'])->name('logins');
 Route::get('/register', [ProfileController::class, 'registers'])->name('registers');
 // Route::get('/forgot', [ProfileController::class, 'forgots'])->name('forgots');
-
-Route::post('/paket-iklan', [PaketIklanController::class, 'store']);
-Route::post('/nama-kategori', [KategoriController::class, 'store']);
-Route::get('/paket-iklan/{id}/edit', [PaketIklanController::class, 'edit'])->name('paket-iklan.edit');
-Route::get('/nama-ketegori/{id}/edit', [KategoriController::class, 'edit'])->name('kategori.edit');
-Route::put('/paket-iklan/{paketIklan}', [PaketIklanController::class, 'update'])->name('paket-iklan.update');
-Route::put('/nama-kategori/{kategori}', [KategoriController::class, 'update'])->name('kategori.update');
-Route::delete('/paket-iklan/{paketIklan}', [PaketIklanController::class, 'destroy'])->name('paket-iklan.destroy');
-Route::delete('/nama-kategori/{kategori}', [KategoriController::class, 'destroy'])->name('kategori.destroy');
-// Route::middleware(['auth'])->group(function () {
-
-    Route::post('/pengajuan-iklan', [PengajuanIklanController::class, 'store'])->name('pengajuaniklan.store');
-// });
-
-
