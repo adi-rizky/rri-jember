@@ -8,6 +8,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -22,14 +23,24 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        // User::factory()->count(100)->create();
+        // DB::table('users')->insert([
+        //     'name' => 'admin',
+        //     'email' => 'admin@gmail.com',
+        //     'phone' =>  '08767899876',
+        //     'address' => 'afhaf',
+        //     'birth_date' => '02-02-2000',
+        //     'password' => bcrypt('password'),
+        //     'role' =>'admin',
+        // ]);
         DB::table('users')->insert([
-            'name' => 'admin',
-            'email' => 'admin@gmail.com',
+            'name' => 'tidakpenting',
+            'email' => 'tidakpenting@gmail.com',
             'phone' =>  '08767899876',
             'address' => 'afhaf',
             'birth_date' => '02-02-2000',
-            'password' => bcrypt('password'),
-            'role' =>'admin',
+            'password' => bcrypt('tidakpenting'),
+            'role' =>'pelanggan',
         ]);
     }
 }

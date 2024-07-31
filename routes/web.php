@@ -1,15 +1,16 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\KategoriController;
-use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PaketIklanController;
 use App\Http\Controllers\PengajuanIklanController;
-use Illuminate\Support\Facades\Http;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -38,9 +39,13 @@ Route::get('/', [DashboardController::class, 'awal']);
 
 //role pelanggan
 Route::middleware(['pelanggan'])->group(function () {
+    Route::get('/user/edituser', [UserController::class, 'editUser'])->name('edituser');
     Route::post('/pengajuan-iklan', [PengajuanIklanController::class, 'store'])->name('pengajuaniklan.store');
     Route::get('/riwayat-pesanan', [PengajuanIklanController::class, 'riwayatPesanan'])->name('riwayat.pesanan');
+    Route::put('/user/updateuser', [UserController::class, 'update'])->name('updateuser');
 });
+
+Route::get('/export-pengajuan', [DashboardController::class, 'exportToExcel'])->name('export.pengajuan');
 
 //role admin
 Route::middleware(['admin'])->group(function () {
@@ -60,6 +65,10 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/detailPengajuan/{id}', [DashboardController::class, 'detailPengajuan'])->name('detailPengajuan');
     Route::get('/paketIklan', [DashboardController::class, 'paketIklan'])->name('paketIklan');
     Route::get('/riwayatpesanan', [DashboardController::class, 'riwayat'])->name('riwayatpesanan');
+    Route::get('/users', [UserController::class, 'index'])->name('users.index');
+    Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
+    Route::get('/user/edit', [UserController::class, 'edit'])->name('user.edit');
+    Route::put('/user/update', [UserController::class, 'update'])->name('user.update');
 });
 //profile controller 
 Route::get('/login', [ProfileController::class, 'logins'])->name('logins');

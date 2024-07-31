@@ -27,17 +27,21 @@
                     <a class="nav-link" href="{{ route('riwayat.pesanan') }}">Riwayat Pesanan</a>
                 </li>
                 @endauth
+                
                 @auth
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf
                 </form>
-
                 <button type="button" class="btn btn-primary ms-3" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     Logout
                 </button>
+                <a class="nav-link" href="{{ route('edituser') }}" id="userDropdown" role="button">
+                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
+                </a>
+                
                 @else
-                <button type="button" class="btn btn-primary ms-3">Login</button>
-                <button type="button" class="btn btn-primary ms-3">Register</button>
+                <button type="button" class="btn btn-primary ms-3"><a href="/login" style="text-decoration: none">Login</button></a>
+                <button type="button" class="btn btn-primary ms-3"><a href="/register" style="text-decoration: none">Register</button></a>
                 @endauth
 
             </ul>
