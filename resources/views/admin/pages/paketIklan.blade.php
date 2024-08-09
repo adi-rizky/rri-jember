@@ -12,7 +12,7 @@
         </div>
         <div class="mb-3">
             <label for="pemutaran" class="form-label">Pemutaran</label>
-            <input type="number" class="form-control" id="pemutaran" name="pemutaran" required>
+            <input type="text" class="form-control" id="pemutaran" name="pemutaran" required>
         </div>
         <div class="mb-3">
             <label for="deskripsi" class="form-label">Deskripsi</label>

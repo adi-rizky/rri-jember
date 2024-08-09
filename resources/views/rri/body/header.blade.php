@@ -8,10 +8,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#!">Home</a>
+                    <a class="nav-link" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#!">Tentang Kami</a>
+                    <a class="nav-link" href="{ route('tentangkami') }}">Tentang Kami</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#!">Layanan Kami</a>
@@ -27,21 +27,23 @@
                     <a class="nav-link" href="{{ route('riwayat.pesanan') }}">Riwayat Pesanan</a>
                 </li>
                 @endauth
-                
+
                 @auth
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf
-                </form>
-                <button type="button" class="btn btn-primary ms-3" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                    Logout
-                </button>
-                <a class="nav-link" href="{{ route('edituser') }}" id="userDropdown" role="button">
-                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
-                </a>
-                
+                <div class="d-flex align-items-center ms-auto">
+                    <a class="nav-link me-3" href="{{ route('edituser') }}" id="userDropdown" role="button">
+                        <span class="d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                    <button type="button" class="btn btn-primary btn-sm" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        Logout
+                    </button>
+                </div>
                 @else
-                <button type="button" class="btn btn-primary ms-3"><a href="/login" style="text-decoration: none">Login</button></a>
-                <button type="button" class="btn btn-primary ms-3"><a href="/register" style="text-decoration: none">Register</button></a>
+                <a href="/login" class="btn btn-primary btn-sm ms-3" role="button">Login</a>
+                <a href="/register" class="btn btn-primary btn-sm ms-3" role="button">Register</a>
                 @endauth
 
             </ul>

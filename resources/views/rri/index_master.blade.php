@@ -21,7 +21,6 @@
 <body>
   @include('rri.body.header')
   @include('rri.body.footer')
-   
 </body>
 
 <!-- feaher icons -->

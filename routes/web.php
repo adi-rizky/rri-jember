@@ -74,3 +74,4 @@ Route::middleware(['admin'])->group(function () {
 Route::get('/login', [ProfileController::class, 'logins'])->name('logins');
 Route::get('/register', [ProfileController::class, 'registers'])->name('registers');
 // Route::get('/forgot', [ProfileController::class, 'forgots'])->name('forgots');
+Route::get('/tentangkami', [UserController::class, 'tentangkami'])->name('tentangkami');
